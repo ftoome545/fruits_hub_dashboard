@@ -25,6 +25,7 @@ class _ImageFieldState extends State<ImageField> {
           setState(() {});
           try {
             await imagePicker();
+            // ignore: unused_catch_clause
           } on Exception catch (e) {
             isLoading = false;
             setState(() {});

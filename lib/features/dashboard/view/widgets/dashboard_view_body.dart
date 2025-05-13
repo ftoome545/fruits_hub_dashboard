@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_hub_dashboard/core/widgets/custom_button.dart';
-import 'package:fruits_hub_dashboard/features/add_product/presentation/view/add_product_view.dart';
 import 'package:fruits_hub_dashboard/features/dashboard/view/widgets/skeletonizer_loading.dart';
 
 class DashboardViewBody extends StatelessWidget {
