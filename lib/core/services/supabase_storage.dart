@@ -8,19 +8,13 @@ class SupabaseStorage implements StorageService {
   @override
   Future<String> uploadFile(File file, String path) async {
     String fileName = p.basename(file.path);
-    String extension = p.extension(file.path);
+    // String extension = p.extension(file.path);
 
-    await supabase.storage
-        .from('files')
-        .upload('$path/$fileName.$extension', file);
+    var result =
+        await supabase.storage.from('files').upload('$path/$fileName', file);
 
-    var fileUrl = supabase.storage
-        .from('files')
-        .getPublicUrl('$path/$fileName.$extension');
-
-    // var fileSignedUrl = supabase.storage
-    //     .from('files')
-    //     .createSignedUrl('$path/$fileName.$extension', 60);
-    return fileUrl;
+    final String fileUrl =
+        supabase.storage.from('files').getPublicUrl('$path/$fileName');
+    return result;
   }
 }
