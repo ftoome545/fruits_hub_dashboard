@@ -10,11 +10,10 @@ class SupabaseStorage implements StorageService {
     String fileName = p.basename(file.path);
     // String extension = p.extension(file.path);
 
-    var result =
-        await supabase.storage.from('files').upload('$path/$fileName', file);
+    await supabase.storage.from('files').upload('$path/$fileName', file);
 
     final String fileUrl =
         supabase.storage.from('files').getPublicUrl('$path/$fileName');
-    return result;
+    return fileUrl;
   }
 }

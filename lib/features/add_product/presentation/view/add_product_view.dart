@@ -14,7 +14,7 @@ class AddProductView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: buildAppBar(),
+      appBar: buildAppBar('App Product'),
       body: BlocProvider(
         create: (context) => AddProductCubit(
           getit<ImagesRepo>(),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-AppBar buildAppBar() {
+AppBar buildAppBar(String title) {
   return AppBar(
     centerTitle: true,
-    title: const Text('App Product'),
+    title: Text(title),
     backgroundColor: Colors.white,
   );
 }

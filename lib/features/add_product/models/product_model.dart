@@ -45,6 +45,7 @@ class ProductModel {
       expirationsMonths: addProductInputEntity.expirationsMonths,
       numberOfCalories: addProductInputEntity.numberOfCalories,
       unitAmount: addProductInputEntity.unitAmount,
+      imageUrl: addProductInputEntity.imageUrl,
       isOrganic: addProductInputEntity.isOrganic,
       review: addProductInputEntity.review
           .map((e) => ReviewModel.fromEntity(e))
