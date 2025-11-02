@@ -9,6 +9,7 @@ class OrderView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: buildAppBar('View Data'),
       body: const OrderViewBody(),
     );

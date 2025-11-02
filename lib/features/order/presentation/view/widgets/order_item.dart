@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-import '../../../data/models/order_model.dart';
+import 'package:fruits_hub_dashboard/features/order/domain/entities/order_entity.dart';
 
 class OrderItem extends StatelessWidget {
-  final OrderModel order;
+  final OrderEntity order;
 
   const OrderItem({super.key, required this.order});
 
@@ -11,17 +10,17 @@ class OrderItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final shipping = order.shippingAddressModel;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // 🧾 Order Information
-        Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          elevation: 3,
-          margin: const EdgeInsets.only(bottom: 16),
-          child: Padding(
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      elevation: 3,
+      margin: const EdgeInsets.only(bottom: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // 🧾 Order Information
+          Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,16 +41,9 @@ class OrderItem extends StatelessWidget {
               ],
             ),
           ),
-        ),
 
-        // 📦 Shipping Address
-        Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          elevation: 3,
-          margin: const EdgeInsets.only(bottom: 16),
-          child: Padding(
+          // 📦 Shipping Address
+          Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,27 +65,24 @@ class OrderItem extends StatelessWidget {
               ],
             ),
           ),
-        ),
 
-        // 🛍️ Ordered Products
-        const Text(
-          'Ordered Products',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 8),
-        ListView.builder(
-          itemCount: order.orderProduct.length,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            final product = order.orderProduct[index];
-            return Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              elevation: 2,
-              margin: const EdgeInsets.only(bottom: 12),
-              child: ListTile(
+          // 🛍️ Ordered Products
+          const Padding(
+            padding: EdgeInsets.all(16),
+            child: Text(
+              'Ordered Products',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+          const Divider(),
+          const SizedBox(height: 8),
+          ListView.builder(
+            itemCount: order.orderProduct.length,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              final product = order.orderProduct[index];
+              return ListTile(
                 leading: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.network(
@@ -121,11 +110,11 @@ class OrderItem extends StatelessWidget {
                     color: Colors.teal,
                   ),
                 ),
-              ),
-            );
-          },
-        ),
-      ],
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 

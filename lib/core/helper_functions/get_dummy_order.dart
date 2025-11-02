@@ -1,15 +1,15 @@
-import '../../features/order/data/models/order_model.dart';
-import '../../features/order/data/models/order_product_model.dart';
-import '../../features/order/data/models/shipping_address_model.dart';
+import 'package:fruits_hub_dashboard/features/order/domain/entities/order_entity.dart';
+import 'package:fruits_hub_dashboard/features/order/domain/entities/order_product_entity.dart';
+import 'package:fruits_hub_dashboard/features/order/domain/entities/shipping_address_entity.dart';
 
-OrderModel getDummyOrder() {
-  return OrderModel(
+OrderEntity getDummyOrder() {
+  return OrderEntity(
     totalPrice: 230.75,
     uId: 'user_12345',
     orderID: 'ORD-001',
     paymentMethod: 'Credit Card',
     status: 'Shipped',
-    shippingAddressModel: ShippingAddressModel(
+    shippingAddressModel: ShippingAddressEntity(
       fullName: 'Sarah Ali',
       email: 'sarah@example.com',
       phone: '+966 512345678',
@@ -18,7 +18,7 @@ OrderModel getDummyOrder() {
       addressDetails: 'Apartment 12, Floor 3',
     ),
     orderProduct: [
-      OrderProductModel(
+      OrderProductEntity(
         name: 'Wireless Headphones',
         code: 'HP-001',
         imageUrl:
@@ -26,7 +26,7 @@ OrderModel getDummyOrder() {
         price: 120.50,
         quantity: 1,
       ),
-      OrderProductModel(
+      OrderProductEntity(
         name: 'Smart Watch',
         code: 'SW-002',
         imageUrl:

@@ -1,3 +1,5 @@
+import 'package:fruits_hub_dashboard/features/order/domain/entities/order_entity.dart';
+
 import 'order_product_model.dart';
 import 'shipping_address_model.dart';
 
@@ -43,5 +45,16 @@ class OrderModel {
       'orderPrdocut': orderProduct.map((e) => e.toJson()).toList(),
       'paymentMethod': paymentMethod,
     };
+  }
+
+  toEntity() {
+    return OrderEntity(
+        totalPrice: totalPrice,
+        uId: uId,
+        shippingAddressModel: shippingAddressModel.toEntity(),
+        orderProduct: orderProduct.map((e) => e.toEntity()).toList(),
+        paymentMethod: paymentMethod,
+        status: status,
+        orderID: orderID);
   }
 }
